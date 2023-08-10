@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./header.module.scss";
 
-export default function Header() {
+export default function Header({ setUser }) {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -25,6 +25,7 @@ export default function Header() {
           const responseData = await response.json();
           setDisplayName(responseData.name);
           setErrorMessage("");
+          setUser(responseData);
           console.info(responseData)
         } else {
           const errorData = await response.json();
