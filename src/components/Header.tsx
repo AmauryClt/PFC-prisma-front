@@ -3,7 +3,6 @@ import React, { useState } from "react";
 export default function Header() {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [existingUser, setExistingUser] = useState(false);
   const [displayName, setDisplayName] = useState("");
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,8 +23,8 @@ export default function Header() {
         if (response.ok) {
           const responseData = await response.json();
           setDisplayName(responseData.name);
-          setExistingUser(responseData.existingUser);
           setErrorMessage("");
+          console.info(responseData);
         } else {
           const errorData = await response.json();
           setErrorMessage(errorData.message);
@@ -38,21 +37,16 @@ export default function Header() {
     }
   };
 
-  const handleLogout = () => {
-    setExistingUser(false);
-    setDisplayName("");
-  };
-
   return (
     <div>
-      {existingUser ? (
+      {displayName ? (
         <div>
-          <h1>Welcome back, {displayName}!</h1>
-          <button onClick={handleLogout}>Logout</button>
+          <h1>Welcome, {displayName} !</h1>
+          <button onClick={() => setDisplayName("")}>Logout</button>
         </div>
       ) : (
         <div>
-          <h1>Welcome, {displayName}!</h1>
+          <h1>Welcome </h1>
           <input
             type="text"
             placeholder="Enter your name"
@@ -60,6 +54,7 @@ export default function Header() {
             onChange={handleNameChange}
           />
           <button onClick={handleLogin}>Login</button>
+          <h1> !</h1>
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </div>
       )}

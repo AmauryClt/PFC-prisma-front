@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo } from "react";
+import React, { createContext, useContext, useMemo, useState } from "react";
 import useLocalStorage from "../hooks/useLocalStorage.js";
 
 interface User {
@@ -7,20 +7,22 @@ interface User {
 }
 
 interface UserContextType {
-  user: User;
-  setUser: (user: User) => void;
+  user: User | null;
+  setUser: (user: User | null) => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
-
-// TODO Check type of children
 
 export const UserContextProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [user, setUser] = useLocalStorage("user", null);
+  const userTest = {
+    name: "hello",
+    score: 0,
+  };
+  const [user, setUser] = useState(userTest);
 
   const contextValue = useMemo<UserContextType>(
     () => ({
@@ -31,7 +33,9 @@ export const UserContextProvider = ({
   );
 
   return (
-    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
+    <UserContext.Provider value={({ user: user }, { setuser: setUser })}>
+      {children}
+    </UserContext.Provider>
   );
 };
 
