@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import "./Game.css";
-import paper from "/papers.svg";
-import rock from "/rock.svg";
-import scissors from "/scissors.svg";
+import paper from "/papers1.png";
+import rock from "/rock1.png";
+import scissors from "/scissors1.png";
 
-export const Game = () => {
+export const Game = ({ setUser }) => {
   interface User1 {
     name: string;
     score: number;
   }
-  const [user1, setUser1] = useState({ name: "wilou", score: 0 });
 
   const [playerChoice, setPlayerChoice] = useState("");
   const [computerChoice, setComputerChoice] = useState("");
@@ -20,70 +19,64 @@ export const Game = () => {
     setComputerChoice(choices[Math.floor(Math.random() * 3)]);
     setPlayerChoice(choice);
 
-    console.log(`choix ordi ${computerChoice}`);
-    console.log(`choix joueur ${playerChoice}`);
-    console.log(`user ${user1.score}`);
-
+    setTimeout;
     if (playerChoice === "rock" && computerChoice === "scissors") {
-      setResult("You win");
-      setUser1((prevUser: User1) => ({
+      setResult("You Win! 🎉");
+      setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score + 1,
       }));
     } else if (playerChoice === "rock" && computerChoice === "paper") {
-      setResult("lose");
-      setUser1((prevUser: User1) => ({
+      setResult("You Lose... 🙁");
+      setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score - 1,
       }));
     } else if (playerChoice === "scissors" && computerChoice === "paper") {
-      setResult("win");
-      setUser1((prevUser: User1) => ({
+      setResult("You Win! 🎉");
+      setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score + 1,
       }));
     } else if (playerChoice === "scissors" && computerChoice === "rock") {
-      setResult("lose");
-      setUser1((prevUser: User1) => ({
+      setResult("You Lose... 🙁");
+      setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score - 1,
       }));
     } else if (playerChoice === "paper" && computerChoice === "rock") {
-      setResult("win");
-      setUser1((prevUser: User1) => ({
+      setResult("You Win! 🎉");
+      setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score + 1,
       }));
     } else if (playerChoice === "paper" && computerChoice === "scissors") {
-      setResult("lose");
-      setUser1((prevUser: User1) => ({
+      setResult("You Lose... 🙁");
+      setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score - 1,
       }));
     } else {
-      setResult("draw");
+      setResult("draw 🤝");
     }
-
-    console.log(result);
   };
 
   return (
-    <div className="game">
-      <div className="game-rock">
-        <button onClick={() => fight("rock")}>
+    <>
+      <div className="game-info">
+        <h3>{result}</h3>
+      </div>
+      <div className="game">
+        <div className="game-rock" onClick={() => fight("rock")}>
           <img src={rock} />
-        </button>
-      </div>
-      <div className="game-paper">
-        <button onClick={() => fight("paper")}>
+        </div>
+        <div className="game-paper" onClick={() => fight("paper")}>
           <img src={paper} />
-        </button>
-      </div>
-      <div className="game-scissors">
-        <button onClick={() => fight("scissors")}>
+        </div>
+        <div className="game-scissors" onClick={() => fight("scissors")}>
           <img src={scissors} />
-        </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };

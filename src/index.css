@@ -3,3 +3,14 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --primary_color: #f2cd0b;
+  --secondary_color: #c5dca0;
+  --text: #77021d;
+  --primary_shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+body {
+  background-color: var(--secondary_color);
+}
