@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Jost:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Merriweather+Sans&family=Walter+Turncoat&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,9 +10,12 @@
   --primary_color: #f2cd0b;
   --secondary_color: #c5dca0;
   --text: #77021d;
+  --primary-font: "Itim", cursive;
   --primary_shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 body {
   background-color: var(--secondary_color);
+  font-family: var(--primary-font);
+  color: var(--text);
 }
