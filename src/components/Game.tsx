@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
 import "./Game.css";
 import paper from "/papers1.png";
 import rock from "/rock1.png";
 import scissors from "/scissors1.png";
+import vs from "/vs1.png";
 
 export const Game = ({ setUser }) => {
   interface User1 {
@@ -19,7 +21,6 @@ export const Game = ({ setUser }) => {
     setComputerChoice(choices[Math.floor(Math.random() * 3)]);
     setPlayerChoice(choice);
 
-    setTimeout;
     if (playerChoice === "rock" && computerChoice === "scissors") {
       setResult("You Win! 🎉");
       setUser((prevUser: User1) => ({
@@ -66,17 +67,29 @@ export const Game = ({ setUser }) => {
       <div className="game-info">
         <h3>{result}</h3>
       </div>
-      <div className="game">
-        <div className="game-rock" onClick={() => fight("rock")}>
-          <img src={rock} />
+      <section className="game-mainSection">
+        <div className="game">
+          <h2>Choose :</h2>
+          <div className="game-choice">
+            <div className="game-rock" onClick={() => fight("rock")}>
+              <img src={rock} />
+            </div>
+            <div className="game-paper" onClick={() => fight("paper")}>
+              <img src={paper} />
+            </div>
+            <div className="game-scissors" onClick={() => fight("scissors")}>
+              <img src={scissors} />
+            </div>
+          </div>
         </div>
-        <div className="game-paper" onClick={() => fight("paper")}>
-          <img src={paper} />
+        <div className="vs">
+          <img src={vs} alt="" />
         </div>
-        <div className="game-scissors" onClick={() => fight("scissors")}>
-          <img src={scissors} />
+        <div className="game-computer">
+          <h2>Computer choice</h2>
+          <CircularProgress color="success" className="loading" />
         </div>
-      </div>
+      </section>
     </>
   );
 };
