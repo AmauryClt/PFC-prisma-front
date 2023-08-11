@@ -1,0 +1,20 @@
+.homeImg {
+  height: 60vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeImg img {
+  height: 45vh;
+}
+
+.rock,
+.scissors {
+  margin-top: 20vh;
+}
+
+.paper {
+  margin-top: -25vh;
+}

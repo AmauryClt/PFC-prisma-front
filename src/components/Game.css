@@ -90,3 +90,13 @@
 .loading {
   margin-top: 30%;
 }
+
+.display {
+  height: 45vh;
+  margin-top: -25vh;
+  z-index: 1;
+}
+
+.undisplay {
+  display: none;
+}

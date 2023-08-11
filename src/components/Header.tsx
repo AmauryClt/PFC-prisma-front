@@ -1,14 +1,26 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
 
-export default function Header({ setUser }) {
+export default function Header({ user, setUser }) {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [displayName, setDisplayName] = useState("");
 
+  const navigate = useNavigate();
+
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
+
+  // const storeUserInLocalStorage = (user) => {
+  //   try {
+  //     const userJSON = JSON.stringify(user);
+  //     localStorage.setItem("user", userJSON);
+  //   } catch (error) {
+  //     console.error("Erreur lors du stockage dans le local storage :", error);
+  //   }
+  // };
 
   const handleLogin = async () => {
     if (name) {
@@ -26,7 +38,9 @@ export default function Header({ setUser }) {
           setDisplayName(responseData.name);
           setErrorMessage("");
           setUser(responseData);
+          // storeUserInLocalStorage(responseData);
           console.info(responseData);
+          navigate("/GamePage");
         } else {
           const errorData = await response.json();
           setErrorMessage(errorData.message);
@@ -39,12 +53,18 @@ export default function Header({ setUser }) {
     }
   };
 
+  const logout = () => {
+    setDisplayName("");
+    localStorage.clear();
+    navigate("/");
+  };
+
   return (
     <div>
       {displayName ? (
         <div className={styles.headerSizeLogout}>
-          <h1>Welcome, {displayName} !</h1>
-          <button onClick={() => setDisplayName("")}>Logout</button>
+          <h1>Welcome, {user.name} !</h1>
+          <button onClick={logout}>Logout</button>
         </div>
       ) : (
         <div className={styles.headerSizeLogin}>
