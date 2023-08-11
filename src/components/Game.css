@@ -1,13 +1,34 @@
+/*--------------------------------------- 
+                    Game Info 
+------------------------------------------*/
+
 .game-info {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3%;
+  margin: 3% 0;
   color: var(--text);
 }
 
+/*--------------------------------------- 
+                    Game mainSection    
+------------------------------------------*/
+
+.game-mainSection {
+  display: flex;
+}
+
+.game-computer,
+.game,
+.vs {
+  width: calc(100vw / 3);
+}
+
+/*------------- Game ----------------*/
+
 .game {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 50vh;
@@ -17,7 +38,7 @@
 .game-rock,
 .game-paper,
 .game-scissors {
-  width: 15%;
+  width: 30%;
   height: auto;
   transition: transform 500ms ease-in-out;
 }
@@ -32,14 +53,50 @@
   width: 100%;
 }
 
+.game-choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.game-paper {
+  margin-top: -15vh;
+}
+
 .game-rock,
 .game-scissors {
-  margin-top: 25vh;
+  margin-top: 15vh;
 }
 
-.game-select {
+/*------------- Vs ----------------*/
+
+.vs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vs img {
+  height: 45vh;
+}
+/*------------- Game computer ----------------*/
+
+.game-computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.game-unselect {
-  right: -50%;
+.loading {
+  margin-top: 30%;
+}
+
+.display {
+  height: 45vh;
+  margin-top: -25vh;
+  z-index: 1;
+}
+
+.undisplay {
+  display: none;
 }

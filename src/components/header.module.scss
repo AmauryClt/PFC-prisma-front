@@ -1,27 +1,51 @@
 .headerSizeLogout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #6A994E;
-    height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  align-items: center;
+  justify-content: center;
+  height: 25vh;
+}
+
+.headerSizeLogout button,
+.headerSizeLogin button {
+  border: none;
+  padding: 0 3%;
+  border-radius: 5px;
+  box-shadow: var(--primary_shadow);
+  font-family: var(--primary_font);
+  font-size: 1.1em;
+  color: var(--text);
+  background-color: var(--primary_color);
+}
+
+.headerSizeLogout button:hover,
+.headerSizeLogin button:hover {
+  cursor: pointer;
+}
+
+.headerSizeLogin input {
+  border: none;
+  border-radius: 3px;
+  padding: 0 1%;
+  box-shadow: var(--primary_shadow);
 }
 
 .headerSizeLogin {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: #C5DCA0;
-    height: 400px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1%;
+  height: 25vh;
 }
 
 .inputHeader {
-    margin: 0.5%;
-    height: 30px;
+  margin: 0.5%;
+  height: 30px;
 }
 
 .buttonHeader {
-    height: 30px;
-    margin: 0.5%;
+  height: 30px;
+  margin: 0.5%;
 }
