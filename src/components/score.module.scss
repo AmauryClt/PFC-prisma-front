@@ -1,14 +1,19 @@
 .scoreContent {
-    display: flex;
-    justify-content: center;
-    background-color: #c5dca0;
-    width: 100%;
-  }
-  
-  .scoreContent div {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 15%;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.scoreContent div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 17%;
+  background-color: white;
+  padding: 0.5% 2%;
+  border-radius: 5px;
+  font-size: 1.2em;
+  color: var(--text);
+  box-shadow: var(--primary_shadow);
+}

@@ -56,10 +56,9 @@ export default function Header({ setUser }) {
             value={name}
             onChange={handleNameChange}
           />
-          <button 
-            onClick={handleLogin}
-            className={styles.buttonHeader}
-          >Login</button>
+          <button onClick={handleLogin} className={styles.buttonHeader}>
+            Login
+          </button>
           <h1> !</h1>
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </div>

@@ -1,13 +1,17 @@
+.game-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  color: var(--text);
+}
+
 .game {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 50vh;
   gap: 10%;
-}
-
-.game button {
-  border: none;
 }
 
 .game-rock,

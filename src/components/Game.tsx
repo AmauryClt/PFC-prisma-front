@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Game.css";
-import paper from "/papers.svg";
-import rock from "/rock.svg";
-import scissors from "/scissors.svg";
+import paper from "/papers1.png";
+import rock from "/rock1.png";
+import scissors from "/scissors1.png";
 
 export const Game = ({ setUser }) => {
   interface User1 {
@@ -21,49 +21,49 @@ export const Game = ({ setUser }) => {
 
     setTimeout;
     if (playerChoice === "rock" && computerChoice === "scissors") {
-      setResult("You win");
+      setResult("You Win! 🎉");
       setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score + 1,
       }));
     } else if (playerChoice === "rock" && computerChoice === "paper") {
-      setResult("lose");
+      setResult("You Lose... 🙁");
       setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score - 1,
       }));
     } else if (playerChoice === "scissors" && computerChoice === "paper") {
-      setResult("win");
+      setResult("You Win! 🎉");
       setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score + 1,
       }));
     } else if (playerChoice === "scissors" && computerChoice === "rock") {
-      setResult("lose");
+      setResult("You Lose... 🙁");
       setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score - 1,
       }));
     } else if (playerChoice === "paper" && computerChoice === "rock") {
-      setResult("win");
+      setResult("You Win! 🎉");
       setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score + 1,
       }));
     } else if (playerChoice === "paper" && computerChoice === "scissors") {
-      setResult("lose");
+      setResult("You Lose... 🙁");
       setUser((prevUser: User1) => ({
         ...prevUser,
         score: prevUser.score - 1,
       }));
     } else {
-      setResult("draw");
+      setResult("draw 🤝");
     }
   };
 
   return (
     <>
-      <div>
+      <div className="game-info">
         <h3>{result}</h3>
       </div>
       <div className="game">
