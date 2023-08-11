@@ -22,7 +22,7 @@ function GamePage({ user, setUser }) {
 
   return (
     <div>
-      <Header setUser={setUser} />
+      <Header setUser={setUser} user={user} />
       <Score user={user} />
       <Game setUser={setUser} />
     </div>

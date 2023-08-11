@@ -35,7 +35,7 @@ export default function Header({ user, setUser }) {
 
         if (response.ok) {
           const responseData = await response.json();
-          setDisplayName(responseData);
+          setDisplayName(responseData.name);
           setErrorMessage("");
           setUser(responseData);
           // storeUserInLocalStorage(responseData);
@@ -61,7 +61,7 @@ export default function Header({ user, setUser }) {
 
   return (
     <div>
-      {user && user.name ? (
+      {displayName ? (
         <div className={styles.headerSizeLogout}>
           <h1>Welcome, {user.name} !</h1>
           <button onClick={logout}>Logout</button>

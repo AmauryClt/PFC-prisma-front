@@ -5,6 +5,7 @@ import paper from "/papers1.png";
 import rock from "/rock1.png";
 import scissors from "/scissors1.png";
 import vs from "/vs1.png";
+import { display } from "@mui/system";
 
 export const Game = ({ setUser }) => {
   interface User1 {
@@ -88,6 +89,18 @@ export const Game = ({ setUser }) => {
         <div className="game-computer">
           <h2>Computer choice</h2>
           <CircularProgress color="success" className="loading" />
+          <img
+            src={rock}
+            className={computerChoice === "rock" ? "display" : "undisplay"}
+          />
+          <img
+            src={paper}
+            className={computerChoice === "paper" ? "display" : "undisplay"}
+          />
+          <img
+            src={scissors}
+            className={computerChoice === "scissors" ? "display" : "undisplay"}
+          />
         </div>
       </section>
     </>
