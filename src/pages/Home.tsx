@@ -1,10 +1,17 @@
+import { Dispatch, SetStateAction } from "react";
 import styles from "./home.module.scss";
 import Header from "../components/Header";
 import paper from "/papers1.png";
 import rock from "/rock1.png";
 import scissors from "/scissors1.png";
+import { User } from "../App";
 
-function Home({ user, setUser }) {
+interface Props {
+  user:User
+  setUser:Dispatch<SetStateAction<User>>
+}
+
+function Home({user, setUser}: Props ) {
   return (
     <div className={styles.home}>
       <Header user={user} setUser={setUser} />

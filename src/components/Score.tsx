@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./score.module.scss";
+import { User } from "../App";
 
-export const Score: React.FC = ({ user }) => {
+export const Score = ({ user }: {user:User}) => {
   useEffect(() => {
     const updateScore = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/player/${user.id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/player/${user.id}`,
           {
             method: "PUT",
             headers: {
@@ -27,7 +28,7 @@ export const Score: React.FC = ({ user }) => {
     };
 
     updateScore();
-  }, [user.score, user.id]);
+  }, [user.score, user.id, user]);
 
   return (
     <div className={styles.scoreContent}>

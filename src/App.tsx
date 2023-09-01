@@ -4,28 +4,13 @@ import Home from "./pages/Home";
 import GamePage from "./pages/GamePage";
 import Result from "./pages/Result";
 
-type User = {
+export type User = {
   id?: number;
   name?: string;
   score?: number;
 };
 function App() {
   const [user, setUser] = useState<User>({});
-
-  // useEffect(() => {
-  //   try {
-  //     const userJSON = localStorage.getItem("user");
-  //     if (userJSON) {
-  //       setUser(JSON.parse(userJSON));
-  //     }
-  //   } catch (error) {
-  //     console.error(
-  //       "Erreur lors de la récupération depuis le local storage :",
-  //       error
-  //     );
-  //     return null;
-  //   }
-  // }, []);
 
   return (
     <Router>

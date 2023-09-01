@@ -1,25 +1,15 @@
-import { Link } from "react-router-dom";
+import { Dispatch, SetStateAction } from "react";
 import Header from "../components/Header";
 import { Game } from "../components/Game";
 import { Score } from "../components/Score";
-import { useEffect } from "react";
+import { User } from "../App";
 
-function GamePage({ user, setUser }) {
-  // useEffect(() => {
-  //   try {
-  //     const userJSON = localStorage.getItem("user");
-  //     if (userJSON) {
-  //       setUser(JSON.parse(userJSON));
-  //     }
-  //   } catch (error) {
-  //     console.error(
-  //       "Erreur lors de la récupération depuis le local storage :",
-  //       error
-  //     );
-  //     return null;
-  //   }
-  // }, []);
+interface Props {
+  user:User
+  setUser:Dispatch<SetStateAction<User>>
+}
 
+function GamePage({user, setUser}: Props ) {
   return (
     <div>
       <Header setUser={setUser} user={user} />

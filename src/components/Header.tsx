@@ -1,8 +1,15 @@
+import { Dispatch, SetStateAction } from "react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
+import { User } from "../App";
 
-export default function Header({ user, setUser }) {
+interface Props {
+  user:User
+  setUser:Dispatch<SetStateAction<User>>
+}
+
+export default function Header({ user, setUser }: Props) {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -12,15 +19,6 @@ export default function Header({ user, setUser }) {
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
-
-  // const storeUserInLocalStorage = (user) => {
-  //   try {
-  //     const userJSON = JSON.stringify(user);
-  //     localStorage.setItem("user", userJSON);
-  //   } catch (error) {
-  //     console.error("Erreur lors du stockage dans le local storage :", error);
-  //   }
-  // };
 
   const handleLogin = async () => {
     if (name) {
@@ -38,7 +36,6 @@ export default function Header({ user, setUser }) {
           setDisplayName(responseData.name);
           setErrorMessage("");
           setUser(responseData);
-          // storeUserInLocalStorage(responseData);
           console.info(responseData);
           navigate("/GamePage");
         } else {
