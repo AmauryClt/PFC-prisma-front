@@ -24,7 +24,7 @@ export default function Header({ user, setUser }: Props) {
     if (name) {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}player`, {
+          `${import.meta.env.VITE_BACKEND_URL}/player`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
