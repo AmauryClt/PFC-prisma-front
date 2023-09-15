@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import paper from "/papers1.png";
 import rock from "/rock1.png";
 import scissors from "/scissors1.png";
-import { User } from "../App";
+import { User } from "./Type.ts";
 
 interface Props {
   user:User
