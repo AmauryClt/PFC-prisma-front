@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./header.module.scss";
-import { User } from "../App";
+import { User } from "../pages/Type";
 
 interface Props {
   user:User
@@ -23,7 +23,8 @@ export default function Header({ user, setUser }: Props) {
   const handleLogin = async () => {
     if (name) {
       try {
-        const response = await fetch("http://localhost:5000/player", {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/player`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

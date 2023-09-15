@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import styles from "./score.module.scss";
-import { User } from "../App";
+import type { User } from "../pages/Type";
 
 export const Score = ({ user }: {user:User}) => {
   useEffect(() => {

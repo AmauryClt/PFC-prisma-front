@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import GamePage from "./pages/GamePage";
 import Result from "./pages/Result";
+import type { User } from "./pages/Type";
 
-export type User = {
-  id?: number;
-  name?: string;
-  score?: number;
-};
+// export type User = {
+//   id?: number;
+//   name?: string;
+//   score?: number;
+// };
+
 function App() {
   const [user, setUser] = useState<User>({});
 

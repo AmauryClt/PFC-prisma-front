@@ -5,7 +5,7 @@ import paper from "/papers1.png";
 import rock from "/rock1.png";
 import scissors from "/scissors1.png";
 import vs from "/vs1.png";
-import { User } from "../App";
+import type { User } from "../pages/Type";
 
 interface Props {
   setUser:Dispatch<SetStateAction<User>>

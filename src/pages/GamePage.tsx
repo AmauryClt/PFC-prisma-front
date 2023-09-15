@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import Header from "../components/Header";
 import { Game } from "../components/Game";
 import { Score } from "../components/Score";
-import { User } from "../App";
+import type { User } from "./Type";
 
 interface Props {
   user:User
