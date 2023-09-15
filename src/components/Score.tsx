@@ -7,7 +7,7 @@ export const Score = ({ user }: {user:User}) => {
     const updateScore = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/player/${user.id}`,
+          `${import.meta.env.VITE_BACKEND_URL}player/${user.id}`,
           {
             method: "PUT",
             headers: {
